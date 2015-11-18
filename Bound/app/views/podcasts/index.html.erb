@@ -1,6 +1,24 @@
-<h1>Podcasts#index</h1>
-<p>Find me in app/views/podcasts/index.html.erb</p>
-<img src="">
+<h1>Choose which podcasts to enjoy</h1>
 
-<a href=><img src="http://www.menucool.com/slider/jsImgSlider/images/image-slider-2.jpg"></a>
+
+<div>
+	<%= form_for :podcast do |f| %>
+
+	<%= f.check_box :genre, "Advice" %>
+	<%= f.check_box :genre, "Comedy/ Humor" %>
+	<%= f.check_box :genre, "Education" %>
+	<%= f.check_box :genre, "Movies" %>
+	<%= f.check_box :genre, "Music" %>
+	<%= f.check_box :genre, "News" %>
+	<%= f.check_box :genre, "Science" %>
+	<%= f.check_box :genre, "Talks" %>
+	<%= f.check_box :genre, "TV Shows" %>
+	<%= f.check_box :genre, "Weather" %>
+
+	<%= f.hidden_field :duration %>
+
+	<%= f.submit %>
+
+	<% end %>
+</div>
 
