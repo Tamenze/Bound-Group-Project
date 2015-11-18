@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117195347) do
+ActiveRecord::Schema.define(version: 20151117215755) do
 
-  create_table "dummylibraries", force: :cascade do |t|
+  create_table "podcasts", force: :cascade do |t|
     t.string   "title"
-    t.string   "duration"
+    t.integer  "duration"
+    t.string   "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
