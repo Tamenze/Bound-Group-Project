@@ -2,23 +2,32 @@
 
 
 <div>
-	<%= form_for :podcast do |f| %>
 
-	<%= f.check_box :genre, "Advice" %>
-	<%= f.check_box :genre, "Comedy/ Humor" %>
-	<%= f.check_box :genre, "Education" %>
-	<%= f.check_box :genre, "Movies" %>
-	<%= f.check_box :genre, "Music" %>
-	<%= f.check_box :genre, "News" %>
-	<%= f.check_box :genre, "Science" %>
-	<%= f.check_box :genre, "Talks" %>
-	<%= f.check_box :genre, "TV Shows" %>
-	<%= f.check_box :genre, "Weather" %>
 
-	<%= f.hidden_field :duration %>
+	<form action= "index" method="get">
 
-	<%= f.submit %>
+		<fieldset>
+	   	<input type="checkbox" name="genre-sports" value="Arts">Arts
+	   	<br>
+	   	<input type="checkbox" name="genre-basketball" value="Comedy">Comedy
+	   	<br>
+	   	<input type="checkbox" name="genre-music" value="Games & Hobbies">Games & Hobbies
+	   	<br>
+	   	<input type="checkbox" name="genre-stories" value="Religion & Spirituality">Religion & Spirituality
+	   	<br>
+	   	<input type="checkbox" name="genre-stories" value="Science & Medicine">Science & Medicine
 
-	<% end %>
+	   	<input type="checkbox" name="genre-stories" value="Sports & Recreation">Sports & Recreation
+
+	   	<input type="checkbox" name="genre-stories" value="Technology">Technology
+
+	   	<input type="checkbox" name="genre-stories" value="TV & Film">TV/Film
+
+	   	<input type="submit" value="Submit">
+	   	</fieldset>	
+
+   </form>
+
+
 </div>
 
