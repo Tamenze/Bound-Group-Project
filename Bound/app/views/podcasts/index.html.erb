@@ -1,17 +1,45 @@
 <h1>Plan your Trip</h1>
 <!-- <p>Find me in app/views/podcasts/index.html.erb</p> -->
 
+<form>
+	Starting Point: <br>
+	<input type="text" name="start_point">
+	<br>
+	Ending Point: <br>
+	<input type="text" name="end_point">
+	<br> <br>
+	<button type="button" id="sub_butt"> Submit</button>
+</form>
+
+
+<!-- onclick="initialize();"
+ -->
 
    <div id="duration">Duration: </div> 
    <div id="distance">Distance: </div> 
    <div id="map" style="width: 600px; height: 500px;"></div> 
 
+   <button id="bound_butt"> bound!</button>
+
+
+   <form action= "index" method="get">
+   	<input type="hidden" name="durax" value="NARNAR">
+   	<input type="checkbox" name="genre-sports" value="Sports">Sports
+   	<br>
+   	<input type="checkbox" name="genre-basketball" value="Basketball">Basketball
+   	<br>
+   	<input type="checkbox" name="genre-music" value="Music">Music
+   	<br>
+   	<input type="checkbox" name="genre-stories" value="Stories">Stories
+   	<br>
+   	<input type="submit" value="Submit">
+   </form>
 <br>
 
-<form action="index" method="get">
+
+<!-- <form action="index" method="get">
 	<fieldset>
 		<legend>What would you like to listen to?</legend> <br>
-
 		<input type="checkbox" name="Arts">Arts
 		<input type="checkbox" name="Comedy">Comedy
 		<input type="checkbox" name="Games & Hobbies">Games & Hobbies
@@ -23,4 +51,4 @@
 			<br>
 		<input type="submit" value="Submit" class="submit">
 	</fieldset>
-</form>
+</form> -->
