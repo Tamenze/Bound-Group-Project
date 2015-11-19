@@ -1,3 +1,3 @@
 class Podcast < ActiveRecord::Base
-	has_many :podcasts
+	has_many :genres
 end
