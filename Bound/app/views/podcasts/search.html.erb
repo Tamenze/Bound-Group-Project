@@ -1,0 +1,19 @@
+
+<% if @match %>
+<h1> Here are the <%= @match %> podcasts that fit your trip:</h1>
+<% end %>
+
+<%if @failed_match %>
+	<%= @failed_match %>
+<% end %>
+
+<% if @podcasts %>
+	<% @podcasts.each do |p| %>
+	<p>Title: <%= p.title%></p>
+	<p>Duration: <%= p.duration%> minutes</p>
+	<p>Genre: <%= p.genre%></p>
+	<hr>
+	<% end %>
+
+<% end %>
+
