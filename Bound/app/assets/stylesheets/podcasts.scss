@@ -4,75 +4,104 @@
 body{
 	background-color:rgba(0,0,0,.7);
 	margin:0px;
-	nav{
-		float:right;
-		text-align: left;
+}
+#logo {
+	display:inline-block;
+	padding-left: 15px;
+	padding-top: 10px;
+	// background-color:red;
+	width:25%;
+	margin:0px;
+}
+	#nav-form{
 		width:70%;
-		ul{
-			width:45%;
-			// background-color:yellow;
-			margin-top: 100px;
-			margin-left: 10px;
-			margin-right: auto;
-			li{
-				// background-color:orange;
-				margin:0px;
-				display:inline;
-				margin-left: 50px ;
-			}
-		}
-
-	}
-	#logo {
-		padding-left: 15px;
-		padding-top: 10px;
-	}
-	
-	#sidebar{
-		background-color:red;
-		width:30%;
-		height:800px;
+		// background-color:yellow;
 		display:inline-block;
-		margin:0px;
 	}
-	#direction-genre{
-		width:100%;
-		height:800px;
-		// float:right;
-	
-		#maps-directions-bar{
+nav{
+	// float:right;
+	text-align: center;
+	width:100%;
+	ul{
+		width:70%;
+		margin:0px;
+		// background-color:yellow;
+		// margin-top: 100px;
+		padding:0;
+		margin-bottom: 20px;
+
+		li{
 			// background-color:orange;
-			width:100%;
-			height:480px;
+			margin:0px;
+			display:inline;
+			margin-left: 4%;
+			margin-right:4%;
+
 		}
-		#map{
-			margin-top: 25px;
-			margin-left: 30%;
-			border:solid black 2px;
-			border-radius: 11px;
+	}
+}
+
+	
+
+	
+// #sidebar{
+// 	// background-color:red;
+// 	width:30%;
+// 	height:800px;
+// 	display:inline-block;
+// 	margin:0px;
+// }
+// The User Input start and End form
+#startEnd{
+	margin:0px;
+	margin-left:8%;
+	button{
+		margin-left: 5%;
+	}
+
+}
+// End User Input Start And End Form
+#direction-genre{
+	width:100%;
+	height:800px;
+	// float:right;
+	#maps-directions-bar{
+		// background-color:orange;
+		width:100%;
+		height:480px;
+	}
+	#map{
+		margin-top: 25px;
+		margin-left: 30%;
+		border:solid black 2px;
+		border-radius: 11px;
+		background-color: rgba(255,90,0,.5);
+		background-image: url("Worldmap.png");
+		background-repeat:no-repeat;
+		background-size:cover;
+		
+	}
+	#duration-distance{
+		text-align: center;
+		color: #ff5a00;
+		#duration{
+			height:10px;
+			display:block;
 		}
-		#duration-distance{
-			text-align: center;
-			color: #ff5a00;
-			#duration{
-				height:10px;
-				display:block;
-			}
-			#distance{
-				height:10px;
-				display:block;
-			}
+		#distance{
+			height:10px;
+			display:block;
 		}
-		#genre-bar{
-			// background-color:green;
-			width:100%;
-			height:190px;
-			padding-top: 40px;
-			button{
-				margin-left: 47.5%;
-				margin-top: 10px;
-				margin-bottom: 10px;
-			}
+	}
+	#genre-bar{
+		// background-color:green;
+		width:100%;
+		height:190px;
+		button{
+			margin-left: 47.5%;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
 			form{
 				display:block;
 				color: #ff5a00;
@@ -83,16 +112,27 @@ body{
 					border-radius: 11px;
 					legend {
 						text-align: center;
-					}
-					.genre_alignment {
-						text-align: left;
-						display: inline-block;
-						.submit {
-						margin-top: 10px;
-						margin-bottom: 10px;
-						}
 
+		form{
+			display:block;
+			color: #ff5a00;
+			fieldset{
+				width:40%;
+				margin-left: auto;
+				margin-right: auto;
+				border-radius: 11px;
+				display:none;
+				legend {
+					text-align: center;
+				}
+				.genre_alignment {
+					text-align: left;
+					display: inline-block;
+					.submit {
+					margin-top: 10px;
+					margin-bottom: 10px;
 					}
+
 				}
 			}
 		}

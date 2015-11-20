@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20151117215755) do
 
+  create_table "dummylibraries", force: :cascade do |t|
+    t.string   "title"
+    t.string   "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "podcasts", force: :cascade do |t|
     t.string   "title"
     t.integer  "duration"
