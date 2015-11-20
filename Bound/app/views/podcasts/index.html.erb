@@ -1,27 +1,27 @@
-   <div>
-      <nav>
-         <ul>
-            <li><a href="#"><%= image_tag "walking.png"  %></a></li>
-            <li><a href="#"><%= image_tag "bus.png" %></a></li>
-            <li><a href="#"> <%= image_tag "car.png" %></a></li>
-            <li><a href="#"> <%= image_tag "metro.png" %></a></li>
-         </ul>
-      </nav>
-         <div id="logo">
+   <div id="header div">
+      <div id="logo">
          <%= image_tag "bound-logo.png"  %>
+      </div>
+      <div id="nav-form">
+         <nav>
+            <ul>
+               <li><a href="#"><%= image_tag "walking.png"  %></a></li>
+               <li><a href="#"><%= image_tag "bus.png" %></a></li>
+               <li><a href="#"> <%= image_tag "car.png" %></a></li>
+               <li><a href="#"> <%= image_tag "metro.png" %></a></li>
+            </ul>
+         </nav>
+         <div>
+            <form id="startEnd">
+               Starting:
+               <input type="text" name="start_point">
+               Ending:
+               <input type="text" name="end_point">
+               <button type="button" id="sub_butt"> Submit</button>
+            </form>
          </div>
+      </div>
    </div>
-
-<form>
-   Starting Point: <br>
-   <input type="text" name="start_point">
-   <br>
-   Ending Point: <br>
-   <input type="text" name="end_point">
-   <br> <br>
-   <button type="button" id="sub_butt"> Submit</button>
-</form>
-
 <div id="direction-genre">
    <div id="maps-directions-bar">
       <div id="map" style="width: 500px; height: 400px;"></div>
@@ -35,7 +35,9 @@
       </div>
    </div>
    <div id="genre-bar">
+         <br>
          <button id="bound_butt"> bound!</button>
+         <br>
      
       <%= form_tag("/search", method: "get") do %>
          <fieldset>
@@ -44,39 +46,41 @@
               <%= hidden_field_tag "durax", "NARNAR" %>
                <%= check_box_tag(:Arts)%> 
                <%= label_tag(:Arts, "Arts") %>
+               <br>
                <%= check_box_tag(:Comedy)%> 
                <%= label_tag(:Comedy, "Comedy") %>
+               <br>
                <%= check_box_tag(:games_and_hobbies)%> 
                <%= label_tag(:games_and_hobbies, "Games and Hobbies") %>
             <br>
             </div>
 
             <div class="genre_alignment">
-
-        <%= check_box_tag(:religion_and_spirituality)%> 
-         <%= label_tag(:religion_and_spirituality, "Religion & Spirituality") %>
-         <%= check_box_tag(:science_and_medicine)%> 
-         <%= label_tag(:science_and_medicine, "Science & Medicine") %>
-         <%= check_box_tag(:sports_and_recreation)%> 
-         <%= label_tag(:sports_and_recreation, "Sports & Recreation") %>
+               <%= check_box_tag(:religion_and_spirituality)%> 
+               <%= label_tag(:religion_and_spirituality, "Religion & Spirituality") %>
+               <br>
+               <%= check_box_tag(:science_and_medicine)%> 
+               <%= label_tag(:science_and_medicine, "Science & Medicine") %>
+               <br>
+               <%= check_box_tag(:sports_and_recreation)%> 
+               <%= label_tag(:sports_and_recreation, "Sports & Recreation") %>
             <br>
             </div>
 
             <div class="genre_alignment">
 
-         <%= check_box_tag(:Technology) %>
-         <%= label_tag(:Technology, "Technology")%>
-         <%= check_box_tag(:tv_and_film)%>
-         <%= label_tag(:tv_and_film, "TV & Film")%>
-         <%= check_box_tag(:Music)%>
-         <%= label_tag(:Music, "Music")%>
+               <%= check_box_tag(:Technology) %>
+               <%= label_tag(:Technology, "Technology")%>
+               <br>
+               <%= check_box_tag(:tv_and_film)%>
+               <%= label_tag(:tv_and_film, "TV & Film")%>
+               <br>
+               <%= check_box_tag(:Music)%>
+               <%= label_tag(:Music, "Music")%>
+            </div>
                <br>
                <%= submit_tag("Submit") %>
-               <% end %>
-            </div>
-            <br>
-            <br>
-            <input type="submit" value="Submit" class="submit">
+                <% end %>
          </fieldset>
    </div>
 </div>
