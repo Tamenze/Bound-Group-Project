@@ -12,14 +12,12 @@ $(document).ready(function(){
 
 var subby = document.getElementById("sub_butt");
 
-function initialize() {
+function map_out() {
 var start = document.getElementsByName("start_point")[0].value;
 var end = document.getElementsByName("end_point")[0].value;
 
-
 var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
-
 
 var myOptions = {
  zoom:7,
@@ -54,7 +52,7 @@ directionsService.route(request, function(response, status) {
 })
 };
 
-google.maps.event.addDomListener(subby, "click", initialize);
+google.maps.event.addDomListener(subby, "click", map_out);
 
 
 function replace_with_duration(){
