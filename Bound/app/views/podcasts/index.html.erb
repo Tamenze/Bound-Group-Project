@@ -16,52 +16,48 @@
    </div>
    <div id="genre-bar">
          <button id="bound_butt"> bound!</button>
-      <form action="index" method="get">
+     
+      <%= form_tag("/search", method: "get") do %>
          <fieldset>
             <legend>What would you like to listen to?</legend>
             <div class="genre_alignment">
-               <input type="hidden" name="durax" value="NARNAR">
-                <br>
-               <input type="checkbox" name="Arts">Arts
-               <input type="checkbox" name="Comedy">Comedy
-               <input type="checkbox" name="Games & Hobbies">Games & Hobbies
+              <%= hidden_field_tag "durax", "NARNAR" %>
+               <%= check_box_tag(:Arts)%> 
+               <%= label_tag(:Arts, "Arts") %>
+               <%= check_box_tag(:Comedy)%> 
+               <%= label_tag(:Comedy, "Comedy") %>
+               <%= check_box_tag(:games_and_hobbies)%> 
+               <%= label_tag(:games_and_hobbies, "Games and Hobbies") %>
             <br>
             </div>
 
             <div class="genre_alignment">
-            <input type="checkbox" name="Religion & Spirituality"> Religion & Spirituality
-            <input type="checkbox" name="Science & Medicine"> Science & Medicine
-            <input type="checkbox" name="Sports & Recreation"> Sports & Recreation
+        <%= check_box_tag(:religion_and_spirituality)%> 
+         <%= label_tag(:religion_and_spirituality, "Religion & Spirituality") %>
+         <%= check_box_tag(:science_and_medicine)%> 
+         <%= label_tag(:science_and_medicine, "Science & Medicine") %>
+         <%= check_box_tag(:sports_and_recreation)%> 
+         <%= label_tag(:sports_and_recreation, "Sports & Recreation") %>
             <br>
             </div>
 
             <div class="genre_alignment">
-            <input type="checkbox" name="Technology"> Technology
-            <input type="checkbox" name="TV & Film"> TV & Film
-            <input type="checkbox" name="Music"> Music
+         <%= check_box_tag(:Technology) %>
+         <%= label_tag(:Technology, "Technology")%>
+         <%= check_box_tag(:tv_and_film)%>
+         <%= label_tag(:tv_and_film, "TV & Film")%>
+         <%= check_box_tag(:Music)%>
+         <%= label_tag(:Music, "Music")%>
                <br>
-            <input type="submit" value="Submit" class="submit">
+               <%= submit_tag("Submit") %>
+               <% end %>
             </div>
          </fieldset>
-      </form>
    </div>
 </div>
-
-  <!--   
-
    
 
    
 
-   <form action= "" method="get">
-   	<input type="checkbox" name="genre-sports" value="Sports">Sports
-   	<br>
-   	<input type="checkbox" name="genre-basketball" value="Basketball">Basketball
-   	<br>
-   	<input type="checkbox" name="genre-music" value="Music">MuSic
-   	<br>
-   	<input type="checkbox" name="genre-stories" value="Stories">Stories
-   	<br>
-   	<input type="submit" value="Submit">
-   </form> -->
+
 

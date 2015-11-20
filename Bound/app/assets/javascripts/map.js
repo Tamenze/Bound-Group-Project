@@ -1,4 +1,24 @@
+$(document).ready(function(){
+ //-html form for start and end point
+//-get elements from those places and use them in the google function
+
+
+
+// I NEED A BEGINNING MAP TO SHOW ON THE PAGE-THEN WHEN THE USER ENTERS INFO, 
+// THE MAP BECOMES THE NEW ISH
+
+//right now it's running on the window load. want my stuff to run when the user 
+//clicks submit. so have a default map, and then change the listener to submit //button, click, initialize. 
+
+var subby = document.getElementById("sub_butt");
+
+function map_out() {
+var start = document.getElementsByName("start_point")[0].value;
+var end = document.getElementsByName("end_point")[0].value;
+
+=======
 function initialize() {
+>>>>>>> master
 var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
 
@@ -33,7 +53,18 @@ directionsService.route(request, function(response, status) {
   }
 })
 };
-google.maps.event.addDomListener(window, "load", initialize);
+google.maps.event.addDomListener(subby, "click", map_out);
 
 
+function replace_with_duration(){
+var transfer = document.getElementById("duration").innerHTML.split(": ")[1];
+// console.log(transfer);
+var number = transfer.split(" ")[0];
+// console.log(number);
+document.getElementsByName("durax")[0].value = number;
+// console.log(document.getElementsByName("durax")[0].value);
+};
 
+$("#bound_butt").click(replace_with_duration);
+// on click of bound, form gets repopulated with duration AND changes from hidden to displayed
+  
