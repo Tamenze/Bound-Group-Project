@@ -16,9 +16,7 @@ function map_out() {
 var start = document.getElementsByName("start_point")[0].value;
 var end = document.getElementsByName("end_point")[0].value;
 
-=======
-function initialize() {
->>>>>>> master
+
 var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
 
@@ -31,8 +29,8 @@ var map = new google.maps.Map(document.getElementById("map"), myOptions);
 directionsDisplay.setMap(map);
 
 var request = {
-   origin: '185 Wortman Avenue, Brooklyn NY', 
-   destination: '90 John Street',
+   origin: start, 
+   destination: end,
    travelMode: google.maps.DirectionsTravelMode.TRANSIT
 };
 
@@ -41,18 +39,18 @@ directionsService.route(request, function(response, status) {
 
      // Display the distance:
      document.getElementById('distance').innerHTML += 
-        ((response.routes[0].legs[0].distance.value)*.000621371) + " miles";
-
-    var dur_time = ((response.routes[0].legs[0].duration.value)*0.000277778)
+        ((response.routes[0].legs[0].distance.value)*.000621371).toFixed(2) + " miles";
 
      // Display the duration:
+    var duration_in_minutes =Math.floor((response.routes[0].legs[0].duration.value)*.0166667)
      document.getElementById('duration').innerHTML += 
-        dur_time + " hours";
+        duration_in_minutes + " minutes";
 
      directionsDisplay.setDirections(response);
   }
 })
 };
+
 google.maps.event.addDomListener(subby, "click", map_out);
 
 
@@ -63,8 +61,9 @@ var number = transfer.split(" ")[0];
 // console.log(number);
 document.getElementsByName("durax")[0].value = number;
 // console.log(document.getElementsByName("durax")[0].value);
-};
+}
 
 $("#bound_butt").click(replace_with_duration);
 // on click of bound, form gets repopulated with duration AND changes from hidden to displayed
   
+});
