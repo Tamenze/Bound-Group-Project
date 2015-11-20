@@ -1,6 +1,13 @@
    <div>
-      <h1>BOUND</h1>
-         <div class="logo">
+      <nav>
+         <ul>
+            <li><a href="#"><%= image_tag "walking.png"  %></a></li>
+            <li><a href="#"><%= image_tag "bus.png" %></a></li>
+            <li><a href="#"> <%= image_tag "car.png" %></a></li>
+            <li><a href="#"> <%= image_tag "metro.png" %></a></li>
+         </ul>
+      </nav>
+         <div id="logo">
          <%= image_tag "bound-logo.png"  %>
          </div>
    </div>
@@ -9,13 +16,18 @@
 <div id="direction-genre">
    <div id="maps-directions-bar">
       <div id="map" style="width: 500px; height: 400px;"></div>
-      <div id="directions-form"></div>
-      <div id="duration-distance"> </div>
+      <div id="directions-form">
+      <br>
+      <div id="duration-distance"> 
+      <br>
       <p id="duration"> Duration: </p> 
       <p id="distance">Distance: </p> 
+      </div>
+      </div>
    </div>
    <div id="genre-bar">
-         <button id="bound_butt"> bound!</button>
+      <br>
+      <button id="bound_butt"> bound!</button>
       <form action="index" method="get">
          <fieldset>
             <legend>What would you like to listen to?</legend>
@@ -23,25 +35,32 @@
                <input type="hidden" name="durax" value="NARNAR">
                 <br>
                <input type="checkbox" name="Arts">Arts
+               <br>
                <input type="checkbox" name="Comedy">Comedy
+               <br>
                <input type="checkbox" name="Games & Hobbies">Games & Hobbies
             <br>
             </div>
 
             <div class="genre_alignment">
             <input type="checkbox" name="Religion & Spirituality"> Religion & Spirituality
+            <br>
             <input type="checkbox" name="Science & Medicine"> Science & Medicine
+            <br>
             <input type="checkbox" name="Sports & Recreation"> Sports & Recreation
             <br>
             </div>
 
             <div class="genre_alignment">
             <input type="checkbox" name="Technology"> Technology
+            <br>
             <input type="checkbox" name="TV & Film"> TV & Film
+            <br>
             <input type="checkbox" name="Music"> Music
-               <br>
-            <input type="submit" value="Submit" class="submit">
             </div>
+            <br>
+            <br>
+            <input type="submit" value="Submit" class="submit">
          </fieldset>
       </form>
    </div>
