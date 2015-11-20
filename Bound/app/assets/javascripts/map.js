@@ -35,7 +35,11 @@ var request = {
 
 directionsService.route(request, function(response, status) {
   if (status == google.maps.DirectionsStatus.OK) {
-
+    new google.maps.DirectionsRenderer({
+      // map: mapObject,
+      panel: document.getElementById("directions"),
+      directions: response
+    });
      // Display the distance:
      document.getElementById('distance').innerHTML += 
         ((response.routes[0].legs[0].distance.value)*.000621371).toFixed(2) + " miles";
@@ -55,6 +59,23 @@ directionsService.route(request, function(response, status) {
 
 google.maps.event.addDomListener(subby, "click", map_out);
 
+// $("input:checkbox").on('click',function(){
+//   var $box = $this;
+//   if ($box.is(":checked")){
+//     var group = "input:checkbox[name='" + $box.attr("name") + "']";
+//     $(group).prop("checked",false);
+//     $box.prop("checked",true);
+//   } else {
+//     $box.prop("checked",false);
+//   }  
+//   });
+var $check_boxes = $('input[type=checkbox]');
+
+$check_boxes.click(function() {
+  $check_boxes.prop('checked', false);
+  $(this).prop('checked', true);
+});
+//http://stackoverflow.com/questions/10602576/rails-issue-with-using-jquery-to-select-only-one-checkbox-from-multiple
 
 // function replace_with_duration(e, duration_in_minutes){
 //   // alert("dflkgdlkgjs:" + duration_in_minutes)
