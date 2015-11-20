@@ -3,7 +3,6 @@ $(document).ready(function(){
 //-get elements from those places and use them in the google function
 
 
-
 // I NEED A BEGINNING MAP TO SHOW ON THE PAGE-THEN WHEN THE USER ENTERS INFO, 
 // THE MAP BECOMES THE NEW ISH
 
@@ -47,23 +46,28 @@ directionsService.route(request, function(response, status) {
         duration_in_minutes + " minutes";
 
      directionsDisplay.setDirections(response);
+     document.getElementsByName("durax")[0].value = duration_in_minutes
+     // $("#duration").trigger("mapSucceed", duration_in_minutes)
   }
 })
+
 };
 
 google.maps.event.addDomListener(subby, "click", map_out);
 
 
-function replace_with_duration(){
-var transfer = document.getElementById("duration").innerHTML.split(": ")[1];
-// console.log(transfer);
-var number = transfer.split(" ")[0];
-// console.log(number);
-document.getElementsByName("durax")[0].value = number;
-// console.log(document.getElementsByName("durax")[0].value);
-}
+// function replace_with_duration(e, duration_in_minutes){
+//   // alert("dflkgdlkgjs:" + duration_in_minutes)
+// // var transfer = document.getElementById("duration").innerHTML.split(": ")[1];
+// // // console.log(transfer);
+// // var number = transfer.split(" ")[0];
+// // // console.log(number);
+// document.getElementsByName("durax")[0].value = duration_in_minutes
+// // console.log(document.getElementsByName("durax")[0].value);
+// }
 
-$("#bound_butt").click(replace_with_duration);
+// $("#duration").on("mapSucceed", replace_with_duration);
 // on click of bound, form gets repopulated with duration AND changes from hidden to displayed
-  
+ 
+
 });
