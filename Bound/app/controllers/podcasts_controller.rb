@@ -1,6 +1,5 @@
 class PodcastsController < ApplicationController
-  def index
-  	
+  def index	
   end
 
   # def show
@@ -19,6 +18,7 @@ class PodcastsController < ApplicationController
   	# @podcasts = Podcast.order("created_at DESC")
   	end
   end
+
 
 end
 
