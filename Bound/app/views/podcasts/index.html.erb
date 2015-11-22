@@ -5,7 +5,7 @@
       <div id="nav-form">
          <nav>
             <ul>
-               <li><a href="#"><%= image_tag "walking.png"  %></a></li>
+               <li><a href="#"><%= image_tag "walking.png" %></a></li>
                <li><a href="#"><%= image_tag "bus.png" %></a></li>
                <li><a href="#"> <%= image_tag "car.png" %></a></li>
                <li><a href="#"> <%= image_tag "metro.png" %></a></li>
@@ -22,19 +22,22 @@
          </div>
       </div>
    </div>   
+
 <div id="direction-genre">
    <div id="maps-directions-bar">
       <div id="map" style="width: 500px; height: 400px;"></div>
+      <div id="directions"></div>
       <div id="directions-form">
-         <p id="directions"></p>
+         
       <br>
-      <div id="duration-distance"> 
-      <br>
-      <p id="duration"> Duration: </p> 
-      <p id="distance">Distance: </p> 
-      </div>
+         <div id="duration-distance"> 
+         <br>
+         <p id="duration"> Duration: </p> 
+         <p id="distance">Distance: </p> 
+         </div>
       </div>
    </div>
+
    <div id="genre-bar">
       <%= form_tag("/search", method: "get") do %>
          <fieldset>

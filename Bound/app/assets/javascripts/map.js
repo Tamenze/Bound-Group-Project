@@ -1,13 +1,6 @@
 $(document).ready(function(){
- //-html form for start and end point
-//-get elements from those places and use them in the google function
-
 
 // I NEED A BEGINNING MAP TO SHOW ON THE PAGE-THEN WHEN THE USER ENTERS INFO, 
-// THE MAP BECOMES THE NEW ISH
-
-//right now it's running on the window load. want my stuff to run when the user 
-//clicks submit. so have a default map, and then change the listener to submit //button, click, initialize. 
 
 var subby = document.getElementById("sub_butt");
 
@@ -30,13 +23,12 @@ directionsDisplay.setMap(map);
 var request = {
    origin: start, 
    destination: end,
-   travelMode: google.maps.DirectionsTravelMode.TRANSIT
+   travelMode: google.maps.DirectionsTravelMode.TRANSIT //make this term a variable
 };
 
 directionsService.route(request, function(response, status) {
   if (status == google.maps.DirectionsStatus.OK) {
     new google.maps.DirectionsRenderer({
-      // map: mapObject,
       panel: document.getElementById("directions"),
       directions: response
     });

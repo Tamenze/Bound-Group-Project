@@ -5,6 +5,18 @@ body{
 	background-color:rgba(0,0,0,.7);
 	margin:0px;
 }
+
+#duration-distance,fieldset{
+	display: none;
+}
+#directions{
+	width: 275px;
+	height:400px;
+	overflow:scroll;
+	display: inline-block;
+	display: none;
+}
+
 #logo {
 	display:inline-block;
 	padding-left: 15px;
@@ -75,14 +87,15 @@ nav{
 		height:480px;
 	}
 	#map{
+		display: inline-block;
 		margin-top: 25px;
 		margin-left: 30%;
 		border:solid black 2px;
 		border-radius: 11px;
 		background-color: rgba(255,90,0,.5);
-		background-image: url("Worldmap.png");
-		background-repeat:no-repeat;
-		background-size:cover;
+		// background-image: url("Worldmap.png");
+		// background-repeat:no-repeat;
+		// background-size:cover;
 	}
 	#duration-distance{
 		text-align: center;
@@ -100,6 +113,8 @@ nav{
 		// background-color:green;
 		width:100%;
 		height:190px;
+		position: relative;
+		top: 75px;
 		button{
 			margin-left: 47.5%;
 			margin-top: 10px;
