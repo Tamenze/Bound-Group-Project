@@ -6,6 +6,10 @@ body{
 	margin:0px;
 }
 
+.selected{
+	opacity:0.3;
+}
+
 #duration-distance,fieldset{
 	display: none;
 }
@@ -93,9 +97,6 @@ nav{
 		border:solid black 2px;
 		border-radius: 11px;
 		background-color: rgba(255,90,0,.5);
-		// background-image: url("Worldmap.png");
-		// background-repeat:no-repeat;
-		// background-size:cover;
 	}
 	#duration-distance{
 		text-align: center;

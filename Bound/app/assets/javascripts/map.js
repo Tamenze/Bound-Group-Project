@@ -1,13 +1,54 @@
 $(document).ready(function(){
 
-// I NEED A BEGINNING MAP TO SHOW ON THE PAGE-THEN WHEN THE USER ENTERS INFO, 
+
+
+$("#walk").click(function(){
+  if ( $("#walk").css("display") == "inline-block");
+    // $("#walk").css("opacity",0.3);
+    document.getElementById("mode").innerHTML = "WALKING"
+  });
+
+$("#bus").click(function(){
+  if ( $("#bus").css("display") == "inline-block");
+    // $("#bus").css("opacity",0.3);
+    document.getElementById("mode").innerHTML = "TRANSIT"
+  });
+
+$("#car").click(function(){
+  if ( $("#car").css("display") == "inline-block");
+    // $("#car").css("opacity",0.3);
+    document.getElementById("mode").innerHTML = "DRIVING"
+  });
+
+$("#bike").click(function(){
+  if ( $("#bike").css("display") == "inline-block");
+    // $("#bike").css("opacity",0.3);
+    document.getElementById("mode").innerHTML = "BICYCLING"
+  });
+
+$(".abc li a").click(function () {
+    var t = $(this);
+    var ul = t.closest('ul.abc');
+    var selected = t.hasClass('selected');
+    ul.find('li a').removeClass('selected');
+    if (!selected)
+        t.addClass('selected');
+});
+
+//BEGINNING MAP TO SHOW ON THE PAGE 
+var map = new google.maps.Map(document.getElementById("map"), {
+center: {lat: 40.7079502, lng: -74.0066584},
+  zoom: 13
+});
+
 
 var subby = document.getElementById("sub_butt");
 
 function map_out() {
+var selectedMode = document.getElementById("mode").innerHTML;
+console.log(selectedMode);
 var start = document.getElementsByName("start_point")[0].value;
 var end = document.getElementsByName("end_point")[0].value;
-
 
 var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -20,19 +61,24 @@ var myOptions = {
 var map = new google.maps.Map(document.getElementById("map"), myOptions);
 directionsDisplay.setMap(map);
 
+
 var request = {
    origin: start, 
    destination: end,
-   travelMode: google.maps.DirectionsTravelMode.TRANSIT //make this term a variable
+   travelMode: google.maps.DirectionsTravelMode[selectedMode] //make this term a variable
 };
+
+
+
 
 directionsService.route(request, function(response, status) {
   if (status == google.maps.DirectionsStatus.OK) {
-    new google.maps.DirectionsRenderer({
-      panel: document.getElementById("directions"),
-      directions: response
+    var my_route = new google.maps.DirectionsRenderer({
+    panel: document.getElementById("directions"),
+    directions: response
     });
-     // Display the distance:
+
+         // Display the distance:
      document.getElementById('distance').innerHTML += 
         ((response.routes[0].legs[0].distance.value)*.000621371).toFixed(2) + " miles";
 

@@ -4,18 +4,20 @@
       </div>
       <div id="nav-form">
          <nav>
-            <ul>
-               <li><a href="#"><%= image_tag "walking.png" %></a></li>
-               <li><a href="#"><%= image_tag "bus.png" %></a></li>
-               <li><a href="#"> <%= image_tag "car.png" %></a></li>
-               <li><a href="#"> <%= image_tag "metro.png" %></a></li>
+            <ul class="abc">
+               <li><a href="javascript:void(0);" id="walk"><%= image_tag "walking.png" %></a></li>
+               <li><a href="javascript:void(0);" id="bus"><%= image_tag "metro.png" %></a></li>
+               <li><a href="javascript:void(0);" id="car"> <%= image_tag "car.png" %></a></li>
+               <li><a href="javascript:void(0);" id="bike"> <%= image_tag "bike.png" %></a></li>
             </ul>
+          
          </nav>
+         <span id="mode">TRANSIT</span>
          <div>
             <form id="startEnd">
-               Starting:
+               Start Point:
                <input type="text" name="start_point">
-               Ending:
+               End Point:
                <input type="text" name="end_point">
                <button type="button" id="sub_butt"> Submit</button>
             </form>
@@ -84,7 +86,8 @@
          </fieldset>
    </div>
 </div>
-   
+
+<!-- Bicycle graphic by <a href="http://www.freepik.com/">Freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a> -->
 
 
 
