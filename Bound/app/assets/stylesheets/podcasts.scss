@@ -13,11 +13,13 @@ body{
 	width:25%;
 	margin:0px;
 }
-	#nav-form{
+
+#nav-form{
 		width:70%;
 		// background-color:yellow;
 		display:inline-block;
 	}
+
 nav{
 	// float:right;
 	text-align: center;
@@ -51,6 +53,7 @@ nav{
 // 	display:inline-block;
 // 	margin:0px;
 // }
+
 // The User Input start and End form
 #startEnd{
 	margin:0px;
@@ -60,6 +63,7 @@ nav{
 	}
 
 }
+
 // End User Input Start And End Form
 #direction-genre{
 	width:100%;
@@ -79,7 +83,6 @@ nav{
 		background-image: url("Worldmap.png");
 		background-repeat:no-repeat;
 		background-size:cover;
-		
 	}
 	#duration-distance{
 		text-align: center;
@@ -112,19 +115,7 @@ nav{
 					border-radius: 11px;
 					legend {
 						text-align: center;
-
-		form{
-			display:block;
-			color: #ff5a00;
-			fieldset{
-				width:40%;
-				margin-left: auto;
-				margin-right: auto;
-				border-radius: 11px;
-				display:none;
-				legend {
-					text-align: center;
-				}
+					}
 				.genre_alignment {
 					text-align: left;
 					display: inline-block;
