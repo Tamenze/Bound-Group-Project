@@ -1,18 +1,27 @@
-<h1>Here are the <%= @genre_term %> podcasts that match your query: </h1>
+<div class="logo">
+    <%= image_tag "bound-logo.png"  %>
+</div>
 
+<% unless @failed_match  %> 
+<h1 id="center-me">Here are the <%= @genre_term %> podcasts that match your query: </h1>
+<% end %>
+
+<div id="match">
 <%if @failed_match %>
   <h1> This sucks: <%= @failed_match %> </h1>	
 <% end %>
+</div>
 
-<% if @podcasts %>
-<h1> Here are the <%= @genre_term %> podcasts that fit your trip:</h1>
-	<% @podcasts.each do |p| %>
-	<p>Title: <%= p.title%></p>
-	<p>Duration: <%= p.duration%> minutes</p>
-	<p>Genre: <%= p.genre%></p>
-	<hr>
+<div class="podcasts">
+	<% if @podcasts %>
+		<% @podcasts.each do |p| %>
+		<p>Title: <%= p.title%></p>
+		<p>Duration: <%= p.duration%> minutes</p>
+		<p>Genre: <%= p.genre%></p>
+		<hr>
+		<% end %>
 	<% end %>
-<% end %>
+</div>
 
 <% if @results %>
 <% @results.each do |r| %>
@@ -25,6 +34,5 @@
 	<hr>
 	<% end %>
 <% end %>
-
 
 
