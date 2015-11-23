@@ -4,7 +4,8 @@ $(document).ready(function(){
 		$("fieldset").css("display","block");
 		$("#directions").css("display","inline-block");
 		$("#duration-distance").css("display","block");
-	})
-
+	if ( $("#map").css("margin-left") == (70/100)*100)"%";
+		$("#map").css("margin-left", "20%");
+	});
 });
 

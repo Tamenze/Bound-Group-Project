@@ -27,6 +27,7 @@ body{
 	display: inline-block;
 	display: none;
 	border-radius:10px;
+	margin-left:10px;
 }
 
 #logo {
@@ -138,9 +139,4 @@ nav{
 			}
 		}
 	}
-}
-
-.adp-placemark, .adp-substep, .adp-agencies, .adp-warnbox, .adp-summary{
-	padding-left:20px;
-	padding-right:20px;
 }
