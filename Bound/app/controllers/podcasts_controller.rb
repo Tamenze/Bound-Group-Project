@@ -18,7 +18,7 @@ class PodcastsController < ApplicationController
     if (params[:durax] != nil) && (@genre_term != "commit") && @look != []
         @podcasts = Podcast.search((@genre_term),params[:durax]).order("created_at DESC")
   	else
-  	@failed_match = "No podcasts match your query :("
+  	   @failed_match = "No podcasts match your query :("
   	# @podcasts = Podcast.order("created_at DESC")
     end
 
