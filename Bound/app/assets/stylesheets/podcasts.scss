@@ -1,6 +1,7 @@
 // Place all the styles related to the podcasts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// color for orange #ff5a00
 body{
 	background-color:rgba(0,0,0,.7);
 	margin:0px;
@@ -19,11 +20,13 @@ body{
 }
 
 #directions{
+	background-color:rgba(250,250,250,.8);
 	width: 275px;
 	height:400px;
 	overflow:scroll;
 	display: inline-block;
 	display: none;
+	border-radius:10px;
 }
 
 #logo {
@@ -64,13 +67,14 @@ nav{
 #startEnd{
 	margin:0px;
 	margin-left:8%;
+	color:white;
 	button{
-		margin-left: 5%;
+		margin-left: 20px;
 	}
 
 }
-
 // End User Input Start And End Form
+
 #direction-genre{
 	width:100%;
 	height:800px;
@@ -90,7 +94,7 @@ nav{
 	}
 	#duration-distance{
 		text-align: center;
-		color: #ff5a00;
+		color:white ;
 		#duration{
 			height:10px;
 			display:block;
@@ -113,7 +117,7 @@ nav{
 		}
 			form{
 				display:block;
-				color: #ff5a00;
+				color: white;
 				fieldset{
 					width:40%;
 					margin-left: auto;
@@ -134,4 +138,9 @@ nav{
 			}
 		}
 	}
+}
+
+.adp-placemark, .adp-substep, .adp-agencies, .adp-warnbox, .adp-summary{
+	padding-left:20px;
+	padding-right:20px;
 }
