@@ -6,28 +6,5 @@ $(document).ready(function(){
 		$("#duration-distance").css("display","block");
 	})
 
-
-
-
-	// $("#walk").click(function(){
-	// if ( $("#walk").css("display") == "inline-block");
-	// 	$("#walk").css("opacity",0.3);
-	// 	var new_mode = WALKING 
-	// })
-
-	// $("#walk").click(function(){
-	// if ( $("#walk").css("display") == "inline-block");
-	// 	$("#walk").css("opacity",0.3);
-	// 	var new_mode = WALKING 
-	// })
-
-	// $("#walk").click(function(){
-	// if ( $("#walk").css("display") == "inline-block");
-	// 	$("#walk").css("opacity",0.3);
-	// 	var new_mode = WALKING 
-	// })
-
-
-
 });
 

@@ -17,6 +17,7 @@ body{
 #duration-distance,fieldset{
 	display: none;
 }
+
 #directions{
 	width: 275px;
 	height:400px;
@@ -29,7 +30,6 @@ body{
 	display:inline-block;
 	padding-left: 15px;
 	padding-top: 10px;
-	// background-color:red;
 	width:25%;
 	margin:0px;
 
@@ -37,24 +37,19 @@ body{
 
 #nav-form{
 		width:70%;
-		// background-color:yellow;
 		display:inline-block;
 	}
 
 nav{
-	// float:right;
 	text-align: center;
 	width:100%;
 	ul{
 		width:70%;
 		margin:0px;
-		// background-color:yellow;
-		// margin-top: 100px;
 		padding:0;
 		margin-bottom: 20px;
 
 		li{
-			// background-color:orange;
 			margin:0px;
 			display:inline;
 			margin-left: 4%;
@@ -65,16 +60,6 @@ nav{
 }
 
 	
-
-	
-// #sidebar{
-// 	// background-color:red;
-// 	width:30%;
-// 	height:800px;
-// 	display:inline-block;
-// 	margin:0px;
-// }
-
 // The User Input start and End form
 #startEnd{
 	margin:0px;
