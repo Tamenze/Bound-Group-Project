@@ -6,6 +6,16 @@ body{
 	background-color:rgba(0,0,0,.7);
 	margin:0px;
 }
+.icons{
+	width:30px;
+	height:30px;
+}
+.icons:hover{
+	transform:scale(1.1);
+	border: solid #ff5a00 1px;
+	border-radius: 10px;
+	padding:4px;
+}
 
 .selected{
 	opacity:0.3;
@@ -66,10 +76,14 @@ nav{
 // The User Input start and End form
 #startEnd{
 	margin:0px;
-	margin-left:8%;
+	margin-left:6%;
 	color:white;
+	input {
+		border-radius: 5px;
+	}
 	button{
 		margin-left: 20px;
+		cursor: pointer;
 	}
 
 }
@@ -140,7 +154,7 @@ nav{
 	}
 }
 
-.adp-placemark, .adp-substep, .adp-agencies, .adp-warnbox, .adp-summary{
-	padding-left:20px;
-	padding-right:20px;
-}
+// .adp-placemark, .adp-substep, .adp-agencies, .adp-warnbox, .adp-summary{
+// 	padding-left:20px;
+// 	padding-right:20px;
+// }
