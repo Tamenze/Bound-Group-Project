@@ -1,3 +1,5 @@
+<h1>Here are the <%= @genre_term %> podcasts that match your query: </h1>
+
 <%if @failed_match %>
   <h1> This sucks: <%= @failed_match %> </h1>	
 <% end %>
@@ -12,8 +14,17 @@
 	<% end %>
 <% end %>
 
+<% if @results %>
+<% @results.each do |r| %>
+	<p>Track Name: <%=r['trackName']%></p>
+	<p>Artist Name: <%=r['artistName']%></p>
+	<p>Feed Url: <a href="<%=r['feedUrl']%>"> Feedie</a></p>
+	<p>Collection View Url: <a href="<%=r['collectionViewUrl']%>"> Artistie </a></p>
+	<p>Primary Genre Name: <%=r['primaryGenreName']%></p>
+	<img src="<%=r['artworkUrl100']%>"> 
+	<hr>
+	<% end %>
+<% end %>
 
 
-
-<%= @xpage%>
 
