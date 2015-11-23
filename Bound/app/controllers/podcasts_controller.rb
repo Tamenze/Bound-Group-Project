@@ -1,5 +1,9 @@
 class PodcastsController < ApplicationController
-  def index	
+
+  def index
+  	#iterate podcast by genre
+  	# @podcast = Podcast.where(genre:'sports', duration: 30..45)
+  	@podcast = Podcast.where(genre:'sports', duration: 30..45)
   end
 
   def search
@@ -14,7 +18,7 @@ class PodcastsController < ApplicationController
     if (params[:durax] != nil) && (@genre_term != "commit") && @look != []
         @podcasts = Podcast.search((@genre_term),params[:durax]).order("created_at DESC")
   	else
-  	@failed_match = "No podcasts match your query :("
+  	   @failed_match = "No podcasts match your query :("
   	# @podcasts = Podcast.order("created_at DESC")
     end
 
@@ -43,8 +47,4 @@ class PodcastsController < ApplicationController
 
   end
 
-
-
 end
-
-

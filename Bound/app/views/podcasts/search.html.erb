@@ -1,3 +1,4 @@
+
 <%if @failed_match %>
   <h1> This sucks: <%= @failed_match %> </h1>	
 <% end %>
@@ -15,5 +16,28 @@
 
 
 
-<%= @xpage%>
+<div class="logo">
+    <%= image_tag "bound-logo.png"  %>
+</div>
 
+<% if @match %>
+<h1> Here are the <%= @match %> podcasts that fit your trip:</h1>
+<% end %>
+
+<div id="match">
+	<%if @failed_match %>
+		<%= @failed_match %>
+	<% end %>
+</div>
+
+<div class="podcasts">
+	<% if @podcasts %>
+		<% @podcasts.each do |p| %>
+		<p>Title: <%= p.title%></p>
+		<p>Duration: <%= p.duration%> minutes</p>
+		<p>Genre: <%= p.genre%></p>
+		<hr>
+		<% end %>
+
+	<% end %>
+</div>
