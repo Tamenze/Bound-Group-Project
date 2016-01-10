@@ -13,11 +13,13 @@ body {
 
 	.podcasts {
 		width: 790px;
-		height: 400px;
+		// height: 400px;
+		height: 80%;
 		border: 1px solid;
 		border-radius: 10px;
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 20px;
+		overflow: scroll
 	}
 }
