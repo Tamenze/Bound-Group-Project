@@ -1,5 +1,6 @@
-# require'open-uri'
-# require 'Nokogiri'
+# require 'rubygems'
+require'open-uri'
+require 'Nokogiri'
 
 class PodcastsController < ApplicationController
 
@@ -22,11 +23,15 @@ class PodcastsController < ApplicationController
 
       @results = ITunesSearchAPI.search(:term=> @genre_term, :country => "US", :entity=> "podcast", :media => "podcast", :limit => 10)
 
-          #   r = @results.first
-          # @cool = r['feedUrl']
-          #  @xpage = HTTParty.get(@cool)["rss"]["channel"]
-          #  @doc = Nokogiri::XML(open(@cool))
-          #  @durations = @doc.xpath('//duration')
+        if @results
+          @results.each do |r|
+          # r = @results.first
+          @cool = r['feedUrl']
+           # @xpage = HTTParty.get(@cool)["rss"]["channel"]
+           @doc = Nokogiri::HTML(open(@cool))
+           @duration = @doc.xpath('//duration')
+          end
+        end
     # else
     # @failed_match = "No podcasts match your query :("
 
