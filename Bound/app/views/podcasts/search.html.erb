@@ -24,16 +24,15 @@
 
 
 <% if @results %>
-<% @results.each do |r| %>
+	<% @results.each_with_index do |r, index| %>
 	<p>Track Name: <%=r['trackName']%></p>
 	<p>Artist Name: <%=r['artistName']%></p>
 	<p>Feed Url: <a href="<%=r['feedUrl']%>"> Feedie</a></p>
 	<p>Collection View Url: <a href="<%=r['collectionViewUrl']%>"> Artistie </a></p>
 	<p>Primary Genre Name: <%=r['primaryGenreName']%></p>
-	<p>Xml link: <%= r[@cool] %></p>
-	<p>Duration: <%= @duration %>  </p>
+	<p> This pod's duration is <%= @durations[index] %></p>
 	<img src="<%=r['artworkUrl100']%>"> 
-	<hr>
+		<hr>
 	<% end %>
 <% end %>
 </div>
