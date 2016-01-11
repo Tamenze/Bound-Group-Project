@@ -24,12 +24,16 @@ class PodcastsController < ApplicationController
       @results = ITunesSearchAPI.search(:term=> @genre_term, :country => "US", :entity=> "podcast", :media => "podcast", :limit => 10)
 
         if @results
-          @results.each do |r|
-          # r = @results.first
-          @cool = r['feedUrl']
-           # @xpage = HTTParty.get(@cool)["rss"]["channel"]
-           @doc = Nokogiri::HTML(open(@cool))
-           @duration = @doc.xpath('//duration')
+          @results.each do |x|
+          
+          @cool = x['feedUrl'] + "?format=xml"
+              @doc = Nokogiri::XML(open(@cool))
+           @duration = @doc.xpath('//itunes:duration', 'itunes'=> 'http://www.itunes.com/dtds/podcast-1.0.dtd').first.content
+           # @doc.xpath('//duration').each do |duration|
+
+           #write if/else that grabs dates from <pubDate> tags and gets the duration from only the most recent one(s?)
+
+            #if i change @doc to open in html, then the duration query works even though i don't see them on the page 
           end
         end
     # else
