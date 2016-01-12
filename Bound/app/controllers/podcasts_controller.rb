@@ -1,6 +1,6 @@
-# require 'rubygems'
 require'open-uri'
 require 'Nokogiri'
+require 'chronic_duration'
 
 class PodcastsController < ApplicationController
 
@@ -13,40 +13,53 @@ class PodcastsController < ApplicationController
       if @genre_term.include? "_" 
         @genre_term = @genre_term.gsub("_"," ").split(" ").map(&:capitalize).join(" ")
       end
-      # @podcasts = Podcast.search((@genre_term),params[:durax]).order("created_at DESC")  
+      
       
       if (params[:durax] != nil) && (@genre_term != "commit") && @podcasts != []
-     #      @podcasts 
-    	# else
-    	# @failed_match = "No podcasts match your query :("
-     #  end
-
+      
+      @triptime = params[:durax]
       @results = ITunesSearchAPI.search(:term=> @genre_term, :country => "US", :entity=> "podcast", :media => "podcast", :limit => 15)
-        @durations = []
-
-# results.each_with_index do |object, index|
-#     puts "#{object}, duration is #{durations[index]} "
-# end
-
+      @durations = []
+      @results_to_display = []
 
         if @results
-          @results.each do |x|
+          @results.each_with_index do |object, index|
+          @cool = object['feedUrl'] + "?format=xml"
+          @doc = Nokogiri::XML(open(@cool))
+        
+          @podtime = ((ChronicDuration.parse(@doc.xpath('//itunes:duration', 'itunes'=> 'http://www.itunes.com/dtds/podcast-1.0.dtd').first.content))/60)+1
 
-          
-          @cool = x['feedUrl'] + "?format=xml"
-              @doc = Nokogiri::XML(open(@cool))
-              
-           @durations << @doc.xpath('//itunes:duration', 'itunes'=> 'http://www.itunes.com/dtds/podcast-1.0.dtd').first.content
-           # @doc.xpath('//duration').each do |duration|
+      
+          #make a hash out of above info, and compare it to @triptime. if less than triptime, delete current results object from the results array 
 
-           #write if/else that grabs dates from <pubDate> tags and gets the duration from only the most recent one(s?)
+          #this is different from the other method because before, i was making an instance variable of time for each podcast, and then comparing each time to triptime, and then trying to delete the result at the same index in the results array as the time (in the time/durations array)
 
-            #if i change @doc to open in html, then the duration query works even though i don't see them on the page
-            end  
+          #NEED TO CONVERT THE TIMES TO INTEGERS SO I CAN DO A COMPARISON 
+              if @podtime.to_i < @triptime.to_i
+                # @results.delete_at(index) 
+                  @results_to_display << Hash[
+                    track_name: object["trackName"],
+                    artist_name: object["artistName"],
+                    podcast_time: @podtime,
+                    rss_feed: object["feedUrl"],
+                    collection_view: object["collectionViewUrl"],
+                    genre: object["primaryGenreName"],
+                    icon: object["artworkUrl100"]
+                  ]
+                  @durations << @podtime #only adds the podtime to the durations array if it is less than the triptime
+              # else
+                    #IF PODTIME IS NOT LESS THAN TRIPTIME, I WOULD WANT TO REMOVE THE ASSOCIATED RESULT FROM THE LIST
+                # @results.delete_at(index) 
+              end 
+          end 
+
+
         else
           @failed_match = "No podcasts match your query :("
-        end
+        end #end of @results if/else
+
       end
-  end
+  
+  end #search method end
 
 end

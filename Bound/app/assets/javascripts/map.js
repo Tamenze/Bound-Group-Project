@@ -79,7 +79,7 @@ directionsService.route(request, function(response, status) {
     var duration_in_minutes =Math.floor((response.routes[0].legs[0].duration.value)*.0166667)
     document.getElementById('duration').innerHTML += duration_in_minutes + " minutes";
 
-    //TRANSFERS DURAITON VALUE TO GENRE FORM
+    //TRANSFERS DURATION VALUE TO GENRE FORM
     directionsDisplay.setDirections(response);
     document.getElementsByName("durax")[0].value = duration_in_minutes
   }

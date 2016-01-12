@@ -6,33 +6,22 @@
 <h1 id="center-me">Here are the <%= @genre_term %> podcasts that match your query: </h1>
 <% end %>
 
-<div id="match">
 <%if @failed_match %>
-  <h1> This sucks: <%= @failed_match %> </h1>	
+  <h1 id="center-me"> This sucks: <%= @failed_match %> </h1>	
 <% end %>
-</div>
+
 
 <div class="podcasts">
-	<% if @podcasts %>
-		<% @podcasts.each do |p| %>
-		<p>Title: <%= p.title%></p>
-		<p>Duration: <%= p.duration%> minutes</p>
-		<p>Genre: <%= p.genre%></p>
-		<hr>
-		<% end %>
-	<% end %>
-
-
-<% if @results %>
-	<% @results.each_with_index do |r, index| %>
-	<p>Track Name: <%=r['trackName']%></p>
-	<p>Artist Name: <%=r['artistName']%></p>
-	<p>Feed Url: <a href="<%=r['feedUrl']%>"> Feedie</a></p>
-	<p>Collection View Url: <a href="<%=r['collectionViewUrl']%>"> Artistie </a></p>
-	<p>Primary Genre Name: <%=r['primaryGenreName']%></p>
-	<p> This pod's duration is <%= @durations[index] %></p>
-	<img src="<%=r['artworkUrl100']%>"> 
-		<hr>
+<% if @results_to_display %>
+	<% @results_to_display.each_with_index do |r, index| %>
+		<img src="<%=r[:icon]%>"> 
+		<p> Podcast Title: <%= r[:track_name] %></p>
+        <p> Artist: <%= r[:artist_name] %></p>
+        <p> Genre: <%= r[:genre] %></p>
+        <p> Length: <%= (r[:podcast_time]).to_i %> minutes</p>
+        <p> <a href="<%=r[:collection_view]%>"> View Channel on ITunes </a> </p>
+        <p> <a href="<%=r[:rss_feed]%>"> RSS Feed</a> </p>    
+ 		<hr>
 	<% end %>
 <% end %>
 </div>
