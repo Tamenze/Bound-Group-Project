@@ -19,8 +19,9 @@ class PodcastsController < ApplicationController
       
       @triptime = params[:durax]
       @results = ITunesSearchAPI.search(:term=> @genre_term, :country => "US", :entity=> "podcast", :media => "podcast", :limit => 15)
-      @durations = []
+      # @durations = []
       @results_to_display = []
+      @results_to_sort = []
 
         if @results
           @results.each_with_index do |object, index|
@@ -37,7 +38,8 @@ class PodcastsController < ApplicationController
           #NEED TO CONVERT THE TIMES TO INTEGERS SO I CAN DO A COMPARISON 
               if @podtime.to_i < @triptime.to_i
                 # @results.delete_at(index) 
-                  @results_to_display << Hash[
+                  #@results_to_display << Hash[ #an array of hashes
+                  @results_to_sort << Hash[
                     track_name: object["trackName"],
                     artist_name: object["artistName"],
                     podcast_time: @podtime,
@@ -46,11 +48,13 @@ class PodcastsController < ApplicationController
                     genre: object["primaryGenreName"],
                     icon: object["artworkUrl100"]
                   ]
-                  @durations << @podtime #only adds the podtime to the durations array if it is less than the triptime
+                  
+                  # @durations << @podtime #only adds the podtime to the durations array if it is less than the triptime
               # else
                     #IF PODTIME IS NOT LESS THAN TRIPTIME, I WOULD WANT TO REMOVE THE ASSOCIATED RESULT FROM THE LIST
                 # @results.delete_at(index) 
-              end 
+              end
+              @results_to_display = @results_to_sort.sort_by{|x| x[:podcast_time] }.reverse! 
           end 
 
 
