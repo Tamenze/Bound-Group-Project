@@ -11,18 +11,20 @@
 <% end %>
 
 
-<div class="podcasts">
+
 <% if @results_to_display %>
 	<% @results_to_display.each_with_index do |r, index| %>
+	  <div class= "podcasts">
 		<img src="<%=r[:icon]%>"> 
 		<p> Podcast Title: <%= r[:track_name] %></p>
+		<p> <a href="<%=r[:track_view] %>"> View Track on iTunes </a> </p>
+		<p> Track Release Date: <%=r[:release_date] %></p>
         <p> Artist: <%= r[:artist_name] %></p>
         <p> Genre: <%= r[:genre] %></p>
         <p> Length: <%= (r[:podcast_time]).to_i %> minutes</p>
-        <p> <a href="<%=r[:collection_view]%>"> View Channel on ITunes </a> </p>
         <p> <a href="<%=r[:rss_feed]%>"> RSS Feed</a> </p>    
- 		<hr>
+ 		<br>
+ 	  </div>
 	<% end %>
 <% end %>
-</div>
 
