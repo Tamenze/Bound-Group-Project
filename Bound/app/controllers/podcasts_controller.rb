@@ -9,11 +9,11 @@ class PodcastsController < ApplicationController
 
   def search
     @genre_term = params.keys[2]
-    
-      if @genre_term.include? "_" 
+    # p @genre_term
+      # if @genre_term.include? "_" 
         @genre_term = @genre_term.gsub("_"," ").split(" ").map(&:capitalize).join(" ")
-      end
-      
+      # end
+    # p @genre_term 
       if (params[:durax] != nil) && (@genre_term != "commit")
       
       @triptime = params[:durax]
