@@ -41,14 +41,21 @@ center: {lat: 40.7079502, lng: -74.0066584},
 //DEFINES BUTTON THAT TRIGGERS MAP_OUT FUNCTION
 var subby = document.getElementById("sub_butt");
 
+
+
+//MOVED THESE TO OUTSIDE MAP_OUT SO THEY ARE GLOBAL VARIABLES, AND SO 
+//MAP_OUT CHANGES THEIR VALUES, INSTEAD OF CREATING NEW VARS UPON EVERY CLICK
+var directionsService = new google.maps.DirectionsService();
+var directionsDisplay = new google.maps.DirectionsRenderer();
+
+
 //GOOGLE MAP API FUNCTION THAT RETURNS NEW MAP AND ROUTE
 function map_out() {
 var selectedMode = document.getElementById("mode").innerHTML;
 var start = document.getElementsByName("start_point")[0].value;
 var end = document.getElementsByName("end_point")[0].value;
 
-var directionsService = new google.maps.DirectionsService();
-var directionsDisplay = new google.maps.DirectionsRenderer();
+
 
 var myOptions = {
  zoom:7,
@@ -64,31 +71,43 @@ var request = {
    travelMode: google.maps.DirectionsTravelMode[selectedMode] 
 };
 
+
 directionsService.route(request, function(response, status) {
   if (status == google.maps.DirectionsStatus.OK) {
-    var my_route = new google.maps.DirectionsRenderer({
-    panel: document.getElementById("directions"),
-    directions: response
-    });
+
+//SETS DIRECTIONSDISPLAY (GLOBAL VARIABLE) TO BE THE RESPONSE RETURNED FROM THIS SPECIFIC ROUTE REQUEST
+    directionsDisplay.setPanel(document.getElementById('directions'))
+    directionsDisplay.setDirections(response)
+
+
 
     // DISPLAYS THE DISTANCE:
-    document.getElementById('distance').innerHTML += 
+    document.getElementById('distance').innerHTML = "Distance: " +
     ((response.routes[0].legs[0].distance.value)*.000621371).toFixed(2) + " miles";
 
     // DISPLAYS THE DURATION:
     var duration_in_minutes =Math.floor((response.routes[0].legs[0].duration.value)*.0166667)
-    document.getElementById('duration').innerHTML += duration_in_minutes + " minutes";
+    document.getElementById('duration').innerHTML = "Duration: " + duration_in_minutes + " minutes";
 
     //TRANSFERS DURATION VALUE TO GENRE FORM
     directionsDisplay.setDirections(response);
     document.getElementsByName("durax")[0].value = duration_in_minutes
   }
+  else {
+      window.alert('Directions request failed due to ' + status);
+    }
+
+
 })
 
-};
+
+
+};//end of map_out function
 
 //WHEN SUBBY BUTTON IS CLICKED, MAP_OUT RUNS
 google.maps.event.addDomListener(subby, "click", map_out);
+
+
 
 //ONLY ONE CHECK BOX IN GENRE FORM CAN BE SELECTED AT A TIME
 var $check_boxes = $('input[type=checkbox]');
