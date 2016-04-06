@@ -51,58 +51,55 @@ var directionsDisplay = new google.maps.DirectionsRenderer();
 
 //GOOGLE MAP API FUNCTION THAT RETURNS NEW MAP AND ROUTE
 function map_out() {
-var selectedMode = document.getElementById("mode").innerHTML;
-var start = document.getElementsByName("start_point")[0].value;
-var end = document.getElementsByName("end_point")[0].value;
+  var selectedMode = document.getElementById("mode").innerHTML;
+  var start = document.getElementsByName("start_point")[0].value;
+  var end = document.getElementsByName("end_point")[0].value;
 
-
-
-var myOptions = {
- zoom:7,
- mapTypeId: google.maps.MapTypeId.ROADMAP
-}
-
-var map = new google.maps.Map(document.getElementById("map"), myOptions);
-directionsDisplay.setMap(map);
-
-var request = {
-   origin: start, 
-   destination: end,
-   travelMode: google.maps.DirectionsTravelMode[selectedMode] 
-};
-
-
-directionsService.route(request, function(response, status) {
-  if (status == google.maps.DirectionsStatus.OK) {
-
-//SETS DIRECTIONSDISPLAY (GLOBAL VARIABLE) TO BE THE RESPONSE RETURNED FROM THIS SPECIFIC ROUTE REQUEST
-    directionsDisplay.setPanel(document.getElementById('directions'))
-    directionsDisplay.setDirections(response)
-
-
-
-    // DISPLAYS THE DISTANCE:
-    document.getElementById('distance').innerHTML = "Distance: " +
-    ((response.routes[0].legs[0].distance.value)*.000621371).toFixed(2) + " miles";
-
-    // DISPLAYS THE DURATION:
-    var duration_in_minutes =Math.floor((response.routes[0].legs[0].duration.value)*.0166667)
-    document.getElementById('duration').innerHTML = "Duration: " + duration_in_minutes + " minutes";
-
-    //TRANSFERS DURATION VALUE TO GENRE FORM
-    directionsDisplay.setDirections(response);
-    document.getElementsByName("durax")[0].value = duration_in_minutes
+  var myOptions = {
+   zoom:7,
+   mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-  else {
-      window.alert('Directions request failed due to ' + status);
+
+  var map = new google.maps.Map(document.getElementById("map"), myOptions);
+  directionsDisplay.setMap(map);
+
+  var request = {
+     origin: start, 
+     destination: end,
+     travelMode: google.maps.DirectionsTravelMode[selectedMode] 
+  };
+
+
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+
+  //SETS DIRECTIONSDISPLAY (GLOBAL VARIABLE) TO BE THE RESPONSE RETURNED FROM THIS SPECIFIC ROUTE REQUEST
+      directionsDisplay.setPanel(document.getElementById('directions'))
+      directionsDisplay.setDirections(response)
+
+
+      // DISPLAYS THE DISTANCE:
+      document.getElementById('distance').innerHTML = "Distance: " +
+      ((response.routes[0].legs[0].distance.value)*.000621371).toFixed(2) + " miles";
+
+      // DISPLAYS THE DURATION:
+      var duration_in_minutes =Math.floor((response.routes[0].legs[0].duration.value)*.0166667)
+      document.getElementById('duration').innerHTML = "Duration: " + duration_in_minutes + " minutes";
+
+      //TRANSFERS DURATION VALUE TO GENRE FORM
+      directionsDisplay.setDirections(response);
+      document.getElementsByName("durax")[0].value = duration_in_minutes
     }
+    else {
+        window.alert('Directions request failed due to ' + status);
+        directionsDisplay.setMap(null);
+        directionsDisplay.set('directions', null);
+      }
 
-
-})
-
-
+  })//end of directionsService function
 
 };//end of map_out function
+
 
 //WHEN SUBBY BUTTON IS CLICKED, MAP_OUT RUNS
 google.maps.event.addDomListener(subby, "click", map_out);

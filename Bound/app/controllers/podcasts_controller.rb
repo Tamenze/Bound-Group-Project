@@ -1,6 +1,6 @@
-require'open-uri'
-require 'Nokogiri'
-require 'chronic_duration'
+# require'open-uri'
+# require 'Nokogiri'
+# require 'chronic_duration'
 
 class PodcastsController < ApplicationController
 
