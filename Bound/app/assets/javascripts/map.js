@@ -66,7 +66,7 @@ function drop_down(){
   // $("#sub_butt").click(function(){
   if ($("fieldset").css("display") == "none");
     $("fieldset").css("display","block");
-    $("#directions").css({"display":"inline-block","margin-left":"-30%" });
+    $("#directions").css({"display":"inline-block","margin-left":"-31%" });
     $("#map").css("margin-left", "20%");
     $("#duration-distance").css("display","block");
   // });
