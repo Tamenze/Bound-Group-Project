@@ -1,9 +1,14 @@
 body {
-	background-color:rgba(0,0,0,.7);
+	// background-color:rgba(0,0,0,.85);
+	background-color: #101c42;
 	font-family: 'Questrial', sans-serif;
-	#logo {
+	
+	.logo {
+		display:inline-block;
 		padding-left: 15px;
 		padding-top: 10px;
+		width:25%;
+		margin:0px;
 		}
 	#center-me, #match {
 		color: white;	

@@ -23,11 +23,11 @@ $("#bike").click(function(){
 
 
 //ICONS: ONLY ONE CAN BE SELECTED AT A TIME
-$(".abc li a").click(function () {
+$(".abc li a img").click(function () {
     var t = $(this);
     var ul = t.closest('ul.abc');
     var selected = t.hasClass('selected');
-    ul.find('li a').removeClass('selected');
+    ul.find('li a img').removeClass('selected');
     if (!selected)
         t.addClass('selected');
 });
@@ -49,9 +49,35 @@ var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
 
 
+//ADDS AUTOCOMPLETE FUNCTIONALITY TO INPUT BOXES
+var input1 = document.getElementsByName("start_point")[0]
+var input2 = document.getElementsByName("end_point")[0]
+
+
+var autocomplete1 = new google.maps.places.Autocomplete(input1);
+var autocomplete2 = new google.maps.places.Autocomplete(input2);
+
+
+
+
+//DROP DOWN CHECKLIST FUNCTION
+
+function drop_down(){ 
+  // $("#sub_butt").click(function(){
+  if ($("fieldset").css("display") == "none");
+    $("fieldset").css("display","block");
+    $("#directions").css({"display":"inline-block","margin-left":"-30%" });
+    $("#map").css("margin-left", "20%");
+    $("#duration-distance").css("display","block");
+  // });
+};
+
+
+
 //GOOGLE MAP API FUNCTION THAT RETURNS NEW MAP AND ROUTE
 function map_out() {
   var selectedMode = document.getElementById("mode").innerHTML;
+
   var start = document.getElementsByName("start_point")[0].value;
   var end = document.getElementsByName("end_point")[0].value;
 
@@ -89,6 +115,8 @@ function map_out() {
       //TRANSFERS DURATION VALUE TO GENRE FORM
       directionsDisplay.setDirections(response);
       document.getElementsByName("durax")[0].value = duration_in_minutes
+
+      drop_down();
     }
     else {
         window.alert('Directions request failed due to ' + status);

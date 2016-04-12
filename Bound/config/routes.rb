@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'podcasts#index'
-  
+
   # get 'home' => "podcasts#index"
   get "/search", to: "podcasts#search"
+  get "test" => "podcasts#test_empty"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

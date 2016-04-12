@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require map
-//= require dropdown
 //= require turbolinks
 //= require_tree .

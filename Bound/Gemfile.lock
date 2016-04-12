@@ -151,6 +151,7 @@ DEPENDENCIES
   byebug
   chronic_duration (~> 0.10.6)
   coffee-rails (~> 4.1.0)
+  httparty
   itunes-search-api
   jbuilder (~> 2.0)
   jquery-rails
@@ -165,4 +166,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

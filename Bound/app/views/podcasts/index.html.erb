@@ -1,6 +1,10 @@
    <div id = "header div">
          <div id="logo">
-         <%= image_tag "bound-logo.png"  %>
+         <%= image_tag "bound-logo.png", title: "For the podcast-loving commuter: Suggestions that fit your trip time!" %> 
+         <!-- <img src="assets/imagbound-logo.png" alt="For the podcast-loving commuter: Suggestions that fit your trip time!"> -->
+          
+          <!-- <h3 id="site_descr">For the podcast-loving commuter: Suggestions that fit your trip time!</h3> -->
+
       </div>
       <div id="nav-form">
          <nav>
@@ -16,9 +20,9 @@
          <span id="mode">TRANSIT</span>
          <div>
             <form id="startEnd">
-               Start Point:
+               Start Address:
                <input type="text" name="start_point">
-               End Point:
+               End Address:
                <input type="text" name="end_point">
                <button type="button" id="sub_butt"> Submit</button>
             </form>
@@ -28,7 +32,7 @@
 
 <div id="direction-genre">
    <div id="maps-directions-bar">
-      <div id="map" style="width: 500px; height: 400px;"></div>
+      <div id="map"></div>
       <div id="directions"></div>
 
       <div id="directions-form">       
@@ -75,7 +79,7 @@
                <%= check_box_tag(:Technology) %>
                <%= label_tag(:Technology, "Technology")%>
                <br>
-               <%= check_box_tag(:movies)%>
+               <%= check_box_tag(:Movies)%>
                <%= label_tag(:movies, "TV & Film")%>
                <br>
                <%= check_box_tag(:Music)%>
