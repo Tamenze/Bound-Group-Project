@@ -5,8 +5,8 @@ require 'chronic_duration'
 class PodcastsController < ApplicationController
 
   def test_empty
-  @empty = ""
-  @page = HTTParty.get("https://itunes.apple.com/search?term=" + @empty + "&country=US&media=podcast&entity=podcast&genreID=1303&sort=recent")
+  @empty = "swag"
+  @page = HTTParty.get("https://itunes.apple.com/search?term=" + @empty + "&country=US&media=podcast&entity=podcast&genreId=1303&sort=recent")
   end
   
   def index
@@ -30,12 +30,15 @@ class PodcastsController < ApplicationController
   # GETTING SEARCH TO WORK WITH AN EMPTY TERM SPACE. %20% DOESNT WORK, A SIMPLE SPACE DOESN'T WORK, A QUOTED SPACE DOESN'T WORK, A COMMON LETTER STRING DOESN'T WORK. 
 
   def search
+
     @genre_term = params.keys[2]
     # p @genre_term
-      # if @genre_term.include? "_" 
-        @genre_term = @genre_term.gsub("_"," ").split(" ").map(&:capitalize).join(" ")
-      # end
-    # p @genre_term 
+      if @genre_term.include? "_" 
+    @genre_term = @genre_term.gsub("_"," ").split(" ")[0]
+    # .map(&:capitalize).join(" ")
+      end
+    p @genre_term 
+
       if (params[:durax] != nil) && (@genre_term != "commit")
       
       @triptime = params[:durax]
