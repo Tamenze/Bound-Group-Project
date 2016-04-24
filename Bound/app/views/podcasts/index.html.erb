@@ -50,40 +50,41 @@
          <fieldset>
             <legend>What would you like to listen to?</legend>
             <div class="genre_alignment">
-              <%= hidden_field_tag "durax", "NARNAR" %>
+              <%= hidden_field_tag "triptime", "no value" %>
                <%= check_box_tag(:Arts)%> 
                <%= label_tag(:Arts, "Arts") %>
                <br>
                <%= check_box_tag(:Comedy)%> 
                <%= label_tag(:Comedy, "Comedy") %>
                <br>
-               <%= check_box_tag(:gaming)%> 
-               <%= label_tag(:gaming, "Gaming") %>
+               <%= check_box_tag(:games)%> 
+               <%= label_tag(:games, "Gaming") %>
             <br>
             </div>
 
             <div class="genre_alignment">
+               <%= check_box_tag(:Movies)%>
+               <%= label_tag(:movies, "Film")%>
+               <br>
                <%= check_box_tag(:Religion_and_spirituality)%> 
                <%= label_tag(:religion_and_spirituality, "Religion & Spirituality") %>
                <br>
                <%= check_box_tag(:Science_and_medicine)%> 
                <%= label_tag(:science_and_medicine, "Science & Medicine") %>
                <br>
-               <%= check_box_tag(:Sports)%> 
-               <%= label_tag(:sports, "Sports") %>
-            <br>
+
             </div>
 
             <div class="genre_alignment">
-
+               <%= check_box_tag(:Sports)%> 
+               <%= label_tag(:sports, "Sports") %>
+               <br>
                <%= check_box_tag(:Technology) %>
                <%= label_tag(:Technology, "Technology")%>
                <br>
-               <%= check_box_tag(:Movies)%>
-               <%= label_tag(:movies, "TV & Film")%>
-               <br>
-               <%= check_box_tag(:Music)%>
-               <%= label_tag(:Music, "Music")%>
+               <%= check_box_tag(:Television)%>
+               <%= label_tag(:Television, "TV")%>
+
             </div>
                <br>
                <%= submit_tag("Submit") %>

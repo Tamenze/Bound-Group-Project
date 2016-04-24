@@ -114,7 +114,7 @@ function map_out() {
 
       //TRANSFERS DURATION VALUE TO GENRE FORM
       directionsDisplay.setDirections(response);
-      document.getElementsByName("durax")[0].value = duration_in_minutes
+      document.getElementsByName("triptime")[0].value = duration_in_minutes
 
       drop_down();
     }
