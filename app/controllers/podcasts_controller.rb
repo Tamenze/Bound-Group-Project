@@ -49,17 +49,7 @@ class PodcastsController < ApplicationController
           else
           @podtime = nil
           end
-           # @podtime = ChronicDuration.parse(@doc.xpath('//itunes:duration', 'itunes'=> 'http://www.itunes.com/dtds/podcast-1.0.dtd').first.content)
 
-           # issue: sometimes there is no duration tag in an xml feed, so then there is nothing to call .first or .content on. 
-           # solution: make xpath results a variable, and then only if that variable is not nil, do the .first.content and chronic dur parsing
-  # puts "podtime:"
-  # p @podtime
-
-      
-          #make a hash out of above info, and compare it to @triptime. if less than triptime, delete current results object from the results array 
-
-          #this is different from the other method because before, i was making an instance variable of time for each podcast, and then comparing each time to triptime, and then trying to delete the result at the same index in the results array as the time (in the time/durations array)
 
           #NEED TO CONVERT THE TIMES TO INTEGERS SO I CAN DO A COMPARISON 
               if @podtime !=nil && @podtime.to_i < @triptime.to_i
@@ -76,10 +66,6 @@ class PodcastsController < ApplicationController
                     icon: object["artworkUrl100"]
                   ]
                   
-                  # @durations << @podtime #only adds the podtime to the durations array if it is less than the triptime
-              # else
-                    #IF PODTIME IS NOT LESS THAN TRIPTIME, I WOULD WANT TO REMOVE THE ASSOCIATED RESULT FROM THE LIST
-                # @results.delete_at(index) 
               end
               @results_to_display = @results_to_sort.sort_by{|x| x[:podcast_time] }.reverse! 
 
@@ -87,6 +73,7 @@ class PodcastsController < ApplicationController
   # p @results_to_display
               if @results_to_display.empty?
                   @failed_match = "No podcasts match your query :("
+                  @genre_term = nil
               end
 
         else

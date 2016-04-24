@@ -1,26 +1,28 @@
 
-<%if @failed_match %>
-  <h1 id="center-me"> This sucks: <%= @failed_match %> </h1>
-<% end %>
-<% if @genre_term %>
-<h1 id="center-me">Here are the <%= @genre_term %> podcasts that match your query: </h1>
-<% end %>
-
-
-
-<% if @results_to_display %>
-	<% @results_to_display.each_with_index do |r, index| %>
-	  <div class= "podcasts">
-		<img src="<%=r[:icon]%>"> 
-		<p> Podcast Title: <%= r[:track_name] %></p>
-		<p> <a href="<%=r[:track_view] %>"> View Track on iTunes </a> </p>
-		<p> Track Release Date: <%=r[:release_date] %></p>
-        <p> Artist: <%= r[:artist_name] %></p>
-        <p> Genre: <%= r[:genre] %></p>
-        <p> Length: <%= (r[:podcast_time]).to_i %> minutes</p>
-        <p> <a href="<%=r[:rss_feed]%>"> RSS Feed</a> </p>    
- 		<br>
- 	  </div>
+<div class="search_res">
+	<%if @failed_match %>
+	  <h1 id="center-me"> This sucks: <%= @failed_match %> </h1>
 	<% end %>
-<% end %>
+	<% if @genre_term != nil %>
+	<h1 id="center-me">Here are the <%= @genre_term %> podcasts that match your query: </h1>
+	<% end %>
 
+
+
+	<% if @results_to_display %>
+		<% @results_to_display.each_with_index do |r, index| %>
+		  <div class= "podcasts">
+			<img src="<%=r[:icon]%>"> 
+			<div class="pod_text">
+				<p> Podcast Title: <%= r[:track_name] %></p>
+				<p> <a href="<%=r[:track_view] %>"> View Track on iTunes </a> </p>
+				<p> Track Release Date: <%=r[:release_date] %></p>
+		        <p> Artist: <%= r[:artist_name] %></p>
+		        <p> Genre: <%= r[:genre] %></p>
+		        <p> Length: <%= (r[:podcast_time]).to_i %> minutes</p>
+		        <p> <a href="<%=r[:rss_feed]%>"> RSS Feed</a> </p>    
+	 		</div>
+	 	  </div>
+		<% end %>
+	<% end %>
+</div>

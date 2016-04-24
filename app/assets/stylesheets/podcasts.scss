@@ -7,6 +7,7 @@
 body{
 	background-color: #101c42;
 	margin:0px;
+  font-family: "Questrial", sans-serif;
 }
 .icons{
 	width:30px;
@@ -185,7 +186,7 @@ nav{
 .uil-spin-css {
   background: none;
   position: relative;
-  top: -135px;
+  top: -15em;
   width: 200px;
   height: 200px;
   display: none;
@@ -501,4 +502,47 @@ nav{
   -webkit-transform: translate(84px, 84px) rotate(360deg) translate(70px, 0);
   -o-transform: translate(84px, 84px) rotate(360deg) translate(70px, 0);
   transform: translate(84px, 84px) rotate(360deg) translate(70px, 0);
+}
+
+.search_res{
+  position: relative;
+  top: -17em
+}
+#center-me, #match {
+  color: white; 
+  text-align: center;
+  }
+
+.podcasts {
+  text-align: left;
+  background-color: rgba(255,255, 255, 0.2);
+  width: 66%;
+  font-size: 18px;
+  font-weight: boldest;
+  height: 80%;
+  border-radius: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  overflow: scroll;
+    & img{
+    width: 22%;
+    min-height: 112px;
+    overflow: hidden;
+      float: left;
+      border: 1px solid black;
+      background-color: black;
+      padding: 15% 9%;
+      margin-right: 3px;
+    }
+}
+
+.podcasts a:link, .podcasts a:visited, .podcasts a:active{
+  text-decoration: none;
+  color: white
+  }
+
+.podcasts a:hover{
+  text-decoration: none;
+  color: rgb(228,65,35)
 }

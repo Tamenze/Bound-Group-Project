@@ -143,7 +143,9 @@ $check_boxes.click(function() {
 
 
 $("#show_loader").click(function(){
+  $("#genre-bar").css("display","none")
   $(".uil-spin-css").css("display", "block")
+
 })
 
 });
