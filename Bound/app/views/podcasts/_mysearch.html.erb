@@ -1,12 +1,8 @@
-<div class="logo">
-    <%= image_tag "bound-logo.png"  %>
-</div>
-
-
 
 <%if @failed_match %>
   <h1 id="center-me"> This sucks: <%= @failed_match %> </h1>
-<% else %>
+<% end %>
+<% if @genre_term %>
 <h1 id="center-me">Here are the <%= @genre_term %> podcasts that match your query: </h1>
 <% end %>
 
