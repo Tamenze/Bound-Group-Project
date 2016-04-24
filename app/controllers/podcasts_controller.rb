@@ -91,6 +91,7 @@ class PodcastsController < ApplicationController
 
         else
           @failed_match = "No podcasts match your query :("
+          @genre_term = nil
         end #end of @results if/else
 
     end #params check end
