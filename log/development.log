@@ -1,0 +1,15 @@
+
+
+Started GET "/" for ::1 at 2016-04-24 00:03:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PodcastsController#index as HTML
+  Rendered podcasts/index.html.erb within layouts/application (209.2ms)
+Completed 200 OK in 609ms (Views: 593.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&triptime=62&Technology=1&commit=Submit" for ::1 at 2016-04-24 00:03:35 -0400
+Processing by PodcastsController#search as JS
+  Parameters: {"utf8"=>"✓", "triptime"=>"62", "Technology"=>"1", "commit"=>"Submit"}
+  Rendered podcasts/_mysearch.html.erb (1.6ms)
+  Rendered podcasts/search.js.erb (26.6ms)
+Completed 200 OK in 19534ms (Views: 35.8ms | ActiveRecord: 0.0ms)
