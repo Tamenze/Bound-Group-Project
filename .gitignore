@@ -3,3 +3,4 @@ log/
 test/
 tmp/
 /.bundle
+/.DS_Store
