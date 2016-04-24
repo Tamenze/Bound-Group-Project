@@ -6,7 +6,7 @@ gem 'httparty'
 
 gem 'chronic_duration', '~> 0.10.6'
 
-gem 'nokogiri'
+gem 'nokogiri','~> 1.6.8.rc2'
 
 gem 'itunes-search-api'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
