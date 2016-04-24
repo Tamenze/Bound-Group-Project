@@ -142,4 +142,8 @@ $check_boxes.click(function() {
 });
 
 
+$("#show_loader").click(function(){
+  $(".uil-spin-css").css("display", "block")
+})
+
 });

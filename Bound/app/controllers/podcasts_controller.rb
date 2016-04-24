@@ -3,15 +3,6 @@ require 'Nokogiri'
 require 'chronic_duration'
 
 class PodcastsController < ApplicationController
-# respond_to :html, :js
-  # def test_empty
-  # @empty = "tunes"
-  # @page = HTTParty.get("https://itunes.apple.com/search?term=" + @empty + "&country=US&media=podcast&entity=podcast&genreId=1303&sort=recent")
-  # end
-  def index
-
-  end
-
   def search
     @genre_term = params.keys[2]
       if @genre_term.include? "_" 
@@ -93,7 +84,7 @@ class PodcastsController < ApplicationController
               @results_to_display = @results_to_sort.sort_by{|x| x[:podcast_time] }.reverse! 
 
           end 
-            p @results_to_display
+  # p @results_to_display
               if @results_to_display.empty?
                   @failed_match = "No podcasts match your query :("
               end
@@ -103,9 +94,11 @@ class PodcastsController < ApplicationController
         end #end of @results if/else
 
     end #params check end
+
     respond_to do |format|
-      format.js
+      format.js #for rendering search results in same page using js partial
     end
+
   end #search method end
 
 end
