@@ -156,7 +156,7 @@ DEPENDENCIES
   itunes-search-api
   jbuilder (~> 2.0)
   jquery-rails
-  nokogiri (~> 1.6.8.rc2)
+  nokogiri (~> 1.6.8.rc3)
   pg
   rails (= 4.2.4)
   sass-rails (~> 5.0)

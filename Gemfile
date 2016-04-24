@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
+ruby "2.3.0"
 
 
-ruby '2.3.0'
+
 gem 'httparty'
 
 gem 'chronic_duration', '~> 0.10.6'
 
-gem 'nokogiri','~> 1.6.8.rc2'
+gem 'nokogiri','~> 1.6.8.rc3'
 
 gem 'itunes-search-api'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
