@@ -18,13 +18,27 @@ class PodcastsController < ApplicationController
 
         if @results != nil
           @results.each_with_index do |object, index|
-          @rss = object['feedUrl']
-          #insert logic that if feedurl contains "feed.theplatform", don't add format
-          if @rss.match('feed.theplatform') || @rss.match('feed=podcast')
+    # p "object #{index}"
+          if object['feedUrl']
+    # p object['feedUrl']
             @rss = object['feedUrl']
+            #insert logic that if feedurl contains "feed.theplatform", don't add format
+            if @rss.match('feed.theplatform') || @rss.match('feed=podcast')
+              @rss = object['feedUrl']
+            else
+              @rss = object['feedUrl'] + "?format=xml"
+            end
+          
           else
-            @rss = object['feedUrl'] + "?format=xml"
+            next
           end
+          # @rss = object['feedUrl']
+          # #insert logic that if feedurl contains "feed.theplatform", don't add format
+          # if @rss.match('feed.theplatform') || @rss.match('feed=podcast')
+          #   @rss = object['feedUrl']
+          # else
+          #   @rss = object['feedUrl'] + "?format=xml"
+          # end
   # p @rss
           @doc = Nokogiri::XML(open(@rss))
           @raw_duration_parse = @doc.xpath('//itunes:duration', 'itunes'=> 'http://www.itunes.com/dtds/podcast-1.0.dtd')
@@ -71,7 +85,7 @@ class PodcastsController < ApplicationController
 
           end 
   # p @results_to_display
-              if @results_to_display.empty?
+              if @results_to_display.empty? 
                   @failed_match = "No podcasts match your query :("
                   @genre_term = nil
               end
